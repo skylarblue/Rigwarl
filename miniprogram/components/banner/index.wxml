@@ -1,11 +1,11 @@
-<!--pages/playlist/playlist.wxml-->
+<!--components/playlist/playlist.wxml-->
 <view>
     <swiper
-        indicator-dots="{{indicatorDots}}"
-        autoplay="{{autoplay}}"
-        interval="{{interval}}"
-        duration="{{duration}}"
-        circular="{{circular}}"
+            indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            interval="{{interval}}"
+            duration="{{duration}}"
+            circular="{{circular}}"
     >
         <block wx:for="{{ImageUrls}}" wx:key="{{index}}">
             <swiper-item>

@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/playlist/playlist",
+    "pages/home/home",
     "pages/blog/blog",
     "pages/profile/profile"
   ],
@@ -8,14 +8,14 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#D43C43",
-    "navigationBarTitleText": "音乐",
+    "navigationBarTitleText": "小程序云开发",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#474747",
     "selectedColor": "#D43C43",
     "list": [{
-      "pagePath": "pages/playlist/playlist",
+      "pagePath": "pages/home/home",
       "text": "音乐",
       "iconPath": "./assets/2-3_music.png",
       "selectedIconPath": "./assets/2-3_music_activated.png"

@@ -1,0 +1,43 @@
+.recommend-wrap {
+  padding: 0 10px;
+  .recommend-title {
+    margin: 10px 0;
+    display: flex;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .recommend-body {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .recommend-card {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 10px;
+      width: 30vw;
+      overflow: hidden;
+      position: relative;
+      .music-image {
+        width: 30vw;
+        height: 30vw;
+        border-radius: 10px;
+      }
+      .music-name {
+        padding: 4px;
+        font-size: 12px;
+      }
+      .music-play-count {
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        color: white;
+        font-size: 12px;
+      }
+    }
+  }
+}

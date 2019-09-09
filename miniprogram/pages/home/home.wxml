@@ -1,0 +1,5 @@
+<!--pages/home/home.wxml-->
+<view>
+    <banner />
+    <recommend list="{{playlist}}"/>
+</view>
