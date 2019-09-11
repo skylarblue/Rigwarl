@@ -5,8 +5,8 @@
         <block wx:for="{{list}}" wx:key="{{index}}">
             <view class="recommend-card">
                 <image class="music-image" src="{{item.picUrl}}" mode="aspectFill"/>
-                <text class="music-name">{{item.name}}</text>
                 <text class="music-play-count">{{item.playCount}}</text>
+                <text class="music-name">{{item.name}}</text>
             </view>
         </block>
     </view>
