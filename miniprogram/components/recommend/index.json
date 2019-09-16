@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-      "music-card": "../musicCard"
+      "list-card": "../listCard"
   }
 }

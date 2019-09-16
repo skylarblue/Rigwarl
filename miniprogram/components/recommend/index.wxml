@@ -3,7 +3,8 @@
     <text class="recommend-title">推荐歌单</text>
     <view class="recommend-body">
         <block wx:for="{{list}}" wx:key="{{index}}">
-            <music-card music="{{item}}" />
+            <list-card music="{{item}}" />
         </block>
     </view>
 </view>
+
