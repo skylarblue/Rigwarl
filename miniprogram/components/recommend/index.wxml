@@ -3,11 +3,7 @@
     <text class="recommend-title">推荐歌单</text>
     <view class="recommend-body">
         <block wx:for="{{list}}" wx:key="{{index}}">
-            <view class="recommend-card">
-                <image class="music-image" src="{{item.picUrl}}" mode="aspectFill"/>
-                <text class="music-play-count">{{item.playCount}}</text>
-                <text class="music-name">{{item.name}}</text>
-            </view>
+            <music-card music="{{item}}" />
         </block>
     </view>
 </view>

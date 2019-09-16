@@ -1,7 +1,8 @@
 {
-  "usingComponents": {
-    "banner": "../../components/banner",
-    "recommend": "../../components/recommend"
-  }
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "banner": "../../components/banner",
+        "recommend": "../../components/recommend"
+    }
 }
 

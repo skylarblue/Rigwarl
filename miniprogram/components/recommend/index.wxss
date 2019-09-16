@@ -15,29 +15,3 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.recommend-wrap .recommend-body .recommend-card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
-  width: 30vw;
-  overflow: hidden;
-  position: relative;
-}
-.recommend-wrap .recommend-body .recommend-card .music-image {
-  width: 30vw;
-  height: 30vw;
-  border-radius: 10px;
-}
-.recommend-wrap .recommend-body .recommend-card .music-name {
-  padding: 4px;
-  font-size: 12px;
-}
-.recommend-wrap .recommend-body .recommend-card .music-play-count {
-  position: absolute;
-  right: 4px;
-  top: 2px;
-  color: white;
-  font-size: 12px;
-}
