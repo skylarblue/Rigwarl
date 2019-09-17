@@ -1,2 +1,19 @@
-<!--miniprogram/pages/musics/musics.wxml-->
-<text>miniprogram/pages/musics/musics.wxml</text>
+<view class="list-container">
+    <view class="list-bg" style="background-image: url('{{ listInfo.coverImgUrl }}')"/>
+    <view class="list-mask" />
+    <view class="list-info">
+        <image src="{{ listInfo.coverImgUrl }}" class="list-img" mode="aspectFill" />
+        <view class="detail">
+            <view>
+                <view class="name">{{ listInfo.name }}</view>
+                <view class="creator">
+                    <image src="{{ creator.avatarUrl }}" mode="aspectFill" class="avatar" />
+                    <text class="nickname">{{ creator.nickname }}</text>
+                </view>
+            </view>
+            <view class="description">
+                {{ listInfo.description }}
+            </view>
+        </view>
+    </view>
+</view>

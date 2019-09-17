@@ -1,1 +1,78 @@
-/* miniprogram/pages/musics/musics.wxss */
+.list-container {
+  width: 100vw;
+  position: relative;
+  padding: 10vh 20px;
+  box-sizing: border-box;
+  color: white;
+}
+.list-container .list-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+}
+.list-container .list-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.2);
+}
+.list-container .list-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+.list-container .list-info .list-img {
+  width: 35vw;
+  height: 35vw;
+  border-radius: 20px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+.list-container .list-info .detail {
+  flex-grow: 1;
+  width: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.list-container .list-info .detail .name {
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 18px;
+}
+.list-container .list-info .detail .creator {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  align-items: center;
+}
+.list-container .list-info .detail .creator .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.list-container .list-info .detail .creator .nickname {
+  font-size: 14px;
+}
+.list-container .list-info .detail .description {
+  font-size: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

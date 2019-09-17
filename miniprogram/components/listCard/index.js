@@ -41,7 +41,7 @@ Component({
         },
         ['music.id'](id) {
             this.setData({
-                url: `/pages/musics/musics?playListId=${id}`
+                url: `/pages/musics/musics?playlistId=${id}`
             })
         }
     }
