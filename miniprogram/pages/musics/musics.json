@@ -1,4 +1,6 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "music-list": "../../components/musicList"
+    },
     "navigationStyle": "custom"
 }

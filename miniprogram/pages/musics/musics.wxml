@@ -17,3 +17,4 @@
         </view>
     </view>
 </view>
+<music-list musics="{{ musics }}" />

@@ -6,6 +6,7 @@ Page({
     },
     async onLoad (options) {
         const { playlistId } = options
+        wx.showLoading()
         const {
             result: {
                 playlist: {
@@ -32,5 +33,6 @@ Page({
             },
             creator
         })
+        wx.hideLoading()
     },
 })
