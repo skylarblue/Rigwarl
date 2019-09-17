@@ -13,7 +13,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        formatCountStr: 0
+        formatCountStr: 0,
+        url: ''
     },
     /**
      * 组件的方法列表
@@ -27,7 +28,7 @@ Component({
             } else {
                 return `${count}万`
             }
-        }
+        },
     },
     /**
      * 数据监听器
@@ -36,6 +37,11 @@ Component({
         ['music.playCount'](count) {
             this.setData({
                 formatCountStr: this._transNumber(count, 2)
+            })
+        },
+        ['music.id'](id) {
+            this.setData({
+                url: `/pages/musics/musics?playListId=${id}`
             })
         }
     }

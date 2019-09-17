@@ -9,7 +9,7 @@ const MAX_LIMIT = 100
 // 云函数入口函数
 exports.main = async (event, context) => {
     const result = await playListCollection.count()
-    const time = Math.floor(result.total / MAX_LIMIT)
+    const time = Math.ceil(result.total / MAX_LIMIT)
     const tasks = []
     for (let i = 0; i < time; i++) {
         tasks.push(playListCollection.skip(i * MAX_LIMIT).limit(MAX_LIMIT).get())
@@ -37,7 +37,6 @@ exports.main = async (event, context) => {
             newData.push(playlist[i])
         }
     }
-
     for (let i = 0; i < newData.length; i++) {
         await playListCollection.add({
             data: {

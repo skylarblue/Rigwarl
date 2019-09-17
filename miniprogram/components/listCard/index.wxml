@@ -1,5 +1,7 @@
-<view class="music-card">
-    <image class="music-image" src="{{music.picUrl}}" mode="aspectFill"/>
-    <text class="music-play-count">{{formatCountStr}}</text>
-    <text class="music-name">{{music.name}}</text>
-</view>
+<navigator url="{{url}}" hover-class="none">
+    <view class="music-card">
+        <image class="music-image" src="{{music.picUrl}}" mode="aspectFill"/>
+        <text class="music-play-count">{{formatCountStr}}</text>
+        <text class="music-name">{{music.name}}</text>
+    </view>
+</navigator>

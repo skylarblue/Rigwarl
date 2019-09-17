@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/blog/blog",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/musics/musics"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -14,22 +15,26 @@
   "tabBar": {
     "color": "#474747",
     "selectedColor": "#D43C43",
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "音乐",
-      "iconPath": "./assets/2-3_music.png",
-      "selectedIconPath": "./assets/2-3_music_activated.png"
-    }, {
-      "pagePath": "pages/blog/blog",
-      "text": "发现",
-      "iconPath": "./assets/2-3_blog.png",
-      "selectedIconPath": "./assets/2-3_blog_activated.png"
-    }, {
-      "pagePath": "pages/profile/profile",
-      "text": "我的",
-      "iconPath": "./assets/2-3_profile.png",
-      "selectedIconPath": "./assets/2-3_profile_activated.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "音乐",
+        "iconPath": "./assets/2-3_music.png",
+        "selectedIconPath": "./assets/2-3_music_activated.png"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "发现",
+        "iconPath": "./assets/2-3_blog.png",
+        "selectedIconPath": "./assets/2-3_blog_activated.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "./assets/2-3_profile.png",
+        "selectedIconPath": "./assets/2-3_profile_activated.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
