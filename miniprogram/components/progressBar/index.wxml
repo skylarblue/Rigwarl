@@ -1,0 +1,13 @@
+<view class="flex justify-between align-center">
+    <text class="text-gray text-sm padding">{{showTime.currentTime}}</text>
+    <view class="progress">
+        <movable-area class="movable-area">
+            <movable-view direction="horizontal" class="movable-view"
+                          damping="1000" x="{{movableDis}}" bindchange="onChange"
+                          bindtouchend="onTouchEnd"
+            />
+        </movable-area>
+        <progress border-radius="10" stroke-width="4" backgroundColor="#969696" activeColor="#fff" percent="{{progress}}"></progress>
+    </view>
+    <text class="text-gray text-sm padding">{{showTime.totalTime}}</text>
+</view>

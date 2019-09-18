@@ -1,6 +1,6 @@
 import {
     getStorageSync, showLoading, cloudRequest,
-    showToast, hideLoading
+    showToast, hideLoading, cloudRequestWithoutLoading
 } from '../../utils/wxMethod'
 
 let musics = []
@@ -32,13 +32,8 @@ Page({
         }
         let music = musics[cur]
         this.setData({ music, isPlaying: false })
-
-        // console.log(musicId, typeof musicId)
         app.setPlayMusicId(musicId)
-        //
-        showLoading({
-            title: '歌曲加载中',
-        })
+        showLoading({ title: '歌曲加载中' })
         const {
             result: {
                 data
@@ -61,65 +56,25 @@ Page({
             backgroundAudioManager.coverImgUrl = music.al.picUrl
             backgroundAudioManager.singer = music.ar[0].name
             backgroundAudioManager.epname = music.al.name
-            // 保存播放历史
-            //         this.savePlayHistory()
         }
         this.setData({
             isPlaying: true
         })
         hideLoading()
-        // wx.cloud.callFunction({
-        //     name: 'music',
-        //     data: {
-        //         musicId,
-        //         $url: 'musicUrl',
-        //     }
-        // }).then((res) => {
-        //     console.log(res)
-        //     console.log(JSON.parse(res.result))
-        //     let result = JSON.parse(res.result)
-        //     if (result.data[0].url == null) {
-        //         wx.showToast({
-        //             title: '无权限播放',
-        //         })
-        //         return
-        //     }
-        //     if (!this.data.isSame) {
-        //         backgroundAudioManager.src = result.data[0].url
-        //         backgroundAudioManager.title = music.name
-        //         backgroundAudioManager.coverImgUrl = music.al.picUrl
-        //         backgroundAudioManager.singer = music.ar[0].name
-        //         backgroundAudioManager.epname = music.al.name
-        //
-        //         // 保存播放历史
-        //         this.savePlayHistory()
-        //     }
-        //
-        //     this.setData({
-        //         isPlaying: true
-        //     })
-        //     wx.hideLoading()
-        //
-        //     // 加载歌词
-        //     wx.cloud.callFunction({
-        //         name: 'music',
-        //         data: {
-        //             musicId,
-        //             $url: 'lyric',
-        //         }
-        //     }).then((res) => {
-        //         console.log(res)
-        //         let lyric = '暂无歌词'
-        //         const lrc = JSON.parse(res.result).lrc
-        //         if (lrc) {
-        //             lyric = lrc.lyric
-        //         }
-        //         this.setData({
-        //             lyric
-        //         })
-        //     })
-        // })
-
+        const {
+            result: {
+                lrc: {
+                    lyric = '暂无歌词'
+                }
+            }
+        } = await cloudRequestWithoutLoading({
+            name: 'music',
+            data: {
+                musicId,
+                $url: 'lyric'
+            }
+        })
+        this.setData({ lyric })
     },
     togglePlaying() {
         const { isPlaying } = this.data
@@ -150,34 +105,13 @@ Page({
     },
 
     onChangeLyricShow() {
+        const { isLyricShow } = this.data
         this.setData({
-            isLyricShow: !this.data.isLyricShow
+            isLyricShow: !isLyricShow
         })
     },
 
     timeUpdate(event) {
-        this.selectComponent('.lyric').update(event.detail.currentTime)
-    },
-
-    // 保存播放历史
-    savePlayHistory() {
-        //  当前正在播放的歌曲
-        const music = musiclist[nowPlayingIndex]
-        const openid = app.globalData.openid
-        const history = wx.getStorageSync(openid)
-        let bHave = false
-        for (let i = 0, len = history.length; i < len; i++) {
-            if (history[i].id == music.id) {
-                bHave = true
-                break
-            }
-        }
-        if (!bHave) {
-            history.unshift(music)
-            wx.setStorage({
-                key: openid,
-                data: history,
-            })
-        }
+        // this.selectComponent('.lyric').update(event.detail.currentTime)
     },
 })

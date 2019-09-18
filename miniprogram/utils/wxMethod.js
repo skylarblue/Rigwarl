@@ -4,6 +4,7 @@ export const cloudRequest = async (options) => {
     wx.hideLoading()
     return res
 }
+export const cloudRequestWithoutLoading = async (options) => await wx.cloud.callFunction(options)
 export const setStorageSync = (key, value) => wx.setStorageSync(key, value)
 export const getStorageSync = (key) => wx.getStorageSync(key)
 export const showLoading = (options) => wx.showLoading(options)

@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+      "lyric": "../../components/lyric",
+      "progress-bar": "../../components/progressBar"
   },
   "disableScroll": true
 }

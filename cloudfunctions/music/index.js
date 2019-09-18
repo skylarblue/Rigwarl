@@ -35,5 +35,8 @@ exports.main = async (event, context) => {
     app.router('song', async(ctx) => {
         ctx.body = await rp(`${BASE_URL}/song/url?id=${parseInt(musicId)}`).then(res => JSON.parse(res))
     })
+    app.router('lyric', async(ctx) => {
+        ctx.body = await rp(`${BASE_URL}/lyric?id=${parseInt(musicId)}`).then(res => JSON.parse(res))
+    })
     return app.serve()
 }
