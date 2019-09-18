@@ -103,7 +103,16 @@ Page({
         }
         this._loadMusicDetail(musics[cur].id)
     },
-
+    onPause() {
+        this.setData({
+            isPlaying: false
+        })
+    },
+    onPlay() {
+        this.setData({
+            isPlaying: true
+        })
+    },
     onChangeLyricShow() {
         const { isLyricShow } = this.data
         this.setData({
@@ -112,6 +121,7 @@ Page({
     },
 
     timeUpdate(event) {
-        // this.selectComponent('.lyric').update(event.detail.currentTime)
+        console.log(11)
+        this.selectComponent('.lyric').update(event.detail.currentTime)
     },
 })

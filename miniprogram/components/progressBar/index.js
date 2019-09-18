@@ -56,6 +56,13 @@ Component({
         },
 
         _bindBGMEvent() {
+            backgroundAudioManager.onPlay(() => {
+                this.triggerEvent('musicPlay')
+            })
+            backgroundAudioManager.onPause(() => {
+                console.log('adga')
+                this.triggerEvent('musicPause')
+            })
             backgroundAudioManager.onCanplay(this._setTotalTime.bind(this))
             backgroundAudioManager.onTimeUpdate(this._updateCurrentTime.bind(this))
             backgroundAudioManager.onEnded(() => {
@@ -77,7 +84,7 @@ Component({
                     progress: currentTime / duration * 100,
                     ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`
                 })
-                this.triggerEvent('updateTime', {
+                this.triggerEvent('timeUpdate', {
                     currentTime
                 })
             }

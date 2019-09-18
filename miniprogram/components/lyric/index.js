@@ -1,9 +1,5 @@
-// components/lyric/lyric.js
 let lyricHeight = 0
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
         isLyricShow: {
             type: Boolean,
@@ -11,7 +7,6 @@ Component({
         },
         lyric: String,
     },
-
     observers: {
         lyric(lrc) {
             if (lrc === '暂无歌词') {
@@ -25,7 +20,6 @@ Component({
             } else {
                 this._parseLyric(lrc)
             }
-            // console.log(lrc)
         },
     },
     /**
@@ -33,6 +27,7 @@ Component({
      */
     data: {
         lrcList: [],
+        timeList: [],
         nowLyricIndex: 0, // 当前选中的歌词的索引
         scrollTop: 0, // 滚动条滚动的高度
     },
@@ -55,24 +50,23 @@ Component({
      */
     methods: {
         update(currentTime) {
-            // console.log(currentTime)
-            let lrcList = this.data.lrcList
-            if (lrcList.length == 0) {
+            const { timeList } = this.data
+            if (timeList.length === 0) {
                 return
             }
-            if (currentTime > lrcList[lrcList.length - 1].time) {
-                if (this.data.nowLyricIndex != -1) {
+            if (currentTime > timeList[timeList.length - 1]) {
+                if (this.data.nowLyricIndex !== -1) {
                     this.setData({
                         nowLyricIndex: -1,
-                        scrollTop: lrcList.length * lyricHeight
+                        scrollTop: timeList.length * lyricHeight
                     })
                 }
             }
-            for (let i = 0, len = lrcList.length; i < len; i++) {
-                if (currentTime <= lrcList[i].time) {
+            for (let i = 0, len = timeList.length; i < len; i++) {
+                if (currentTime <= timeList[i]) {
                     this.setData({
                         nowLyricIndex: i - 1,
-                        scrollTop: (i - 1) * lyricHeight
+                        scrollTop: Number((i - 1) * lyricHeight).toFixed(0)
                     })
                     break
                 }
@@ -80,25 +74,20 @@ Component({
         },
         _parseLyric(sLyric) {
             let line = sLyric.split('\n')
-            // console.log(line)
-            let _lrcList = []
+            let lrcList = []
+            let timeList = []
             line.forEach((elem) => {
                 let time = elem.match(/\[(\d{2,}):(\d{2})(?:\.(\d{2,3}))?]/g)
-                if (time != null) {
+                if (time !== null) {
                     let lrc = elem.split(time)[1]
                     let timeReg = time[0].match(/(\d{2,}):(\d{2})(?:\.(\d{2,3}))?/)
-                    // console.log(timeReg)
                     // 把时间转换为秒
                     let time2Seconds = parseInt(timeReg[1]) * 60 + parseInt(timeReg[2]) + parseInt(timeReg[3]) / 1000
-                    _lrcList.push({
-                        lrc,
-                        time: time2Seconds,
-                    })
+                    lrcList.push(lrc)
+                    timeList.push(time2Seconds)
                 }
             })
-            this.setData({
-                lrcList: _lrcList
-            })
+            this.setData({ lrcList, timeList })
         }
     }
 })

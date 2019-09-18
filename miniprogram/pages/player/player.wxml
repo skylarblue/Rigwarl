@@ -7,12 +7,12 @@
 
 <view class="player-info">
     <!-- 封面信息 -->
-    <view class="player-disc {{isPlaying?'play': ''}}" bind:tap="onChangeLyricShow" hidden="{{isLyricShow}}">
+    <view class="player-disc {{isPlaying?'play': ''}} {{isLyricShow ? 'animation-fade' : ''}}" bindtap="onChangeLyricShow">
         <image class="player-img rotation {{isPlaying?'':'rotation-paused'}}" src="{{ music.al.picUrl }}"></image>
     </view>
 
     <!-- 歌词 -->
-<!--    <lyric class="lyric" isLyricShow="{{!isLyricShow}}" bind:tap="onChangeLyricShow" lyric="{{lyric}}" />-->
+    <lyric class="lyric" isLyricShow="{{!isLyricShow}}" bind:tap="onChangeLyricShow" lyric="{{lyric}}" />
 
     <!-- 进度条 -->
     <view class="progress-bar">

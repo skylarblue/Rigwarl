@@ -35,6 +35,11 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 340rpx);
+    transition: opacity ease-in-out .3s;
+    opacity: 1;
+    &.animation-fade {
+        opacity: 0;
+    }
 }
 
 .player-disc::after {
