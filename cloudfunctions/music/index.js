@@ -11,7 +11,10 @@ const playListCollection =  db.collection('playlist')
 // 云函数入口函数
 exports.main = async (event, context) => {
     const app = new TcbRouter({ event })
-    const { page, limit, userInfo, playlistId } = event
+    const {
+        page, limit, userInfo, playlistId,
+        musicId
+    } = event
     app.use(async (ctx, next) => {
         ctx.data = {}
         ctx.data.userInfo = userInfo
@@ -28,6 +31,9 @@ exports.main = async (event, context) => {
     })
     app.router('musics', async(ctx) => {
         ctx.body = await rp(`${BASE_URL}/playlist/detail?id=${parseInt(playlistId)}`).then(res => JSON.parse(res))
+    })
+    app.router('song', async(ctx) => {
+        ctx.body = await rp(`${BASE_URL}/song/url?id=${parseInt(musicId)}`).then(res => JSON.parse(res))
     })
     return app.serve()
 }

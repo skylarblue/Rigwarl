@@ -1,4 +1,4 @@
-import { cloudRequest } from '../../utils/cloudRequest'
+import { cloudRequest } from '../../utils/wxMethod'
 
 Page({
     data: {
@@ -19,10 +19,10 @@ Page({
         wx.stopPullDownRefresh()
     },
     async onReachBottom () {
-        this.setData({
-            page: this.data.page + 1,
-        })
-        this._getPlayList()
+        // this.setData({
+        //     page: this.data.page + 1,
+        // })
+        // this._getPlayList()
     },
     async _getPlayList() {
         const { finish, page, playlist } = this.data

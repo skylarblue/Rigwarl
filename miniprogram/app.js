@@ -24,5 +24,8 @@ App({
                 this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
             }
         })
-    }
+    },
+    setPlayMusicId(musicId) {
+        this.globalData.playingMusicId = musicId
+    },
 })

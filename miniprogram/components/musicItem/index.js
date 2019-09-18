@@ -17,10 +17,10 @@ Component({
     },
     methods: {
         onTap() {
-            const { music } = this.properties
+            const { music, index } = this.properties
             const { id } = music
             wx.navigateTo({
-                url: `/pages/player/player?musicId=${id}`
+                url: `/pages/player/player?musicId=${id}&index=${index}`
             })
         }
     },

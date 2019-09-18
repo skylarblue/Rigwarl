@@ -1,8 +1,8 @@
 <cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
     <view slot="backText">返回</view>
-    <view slot="content">导航栏</view>
+    <view class="text-cut" slot="content">{{ listInfo.name }}</view>
 </cu-custom>
-<view class="list-container" >
+<view class="list-container" wx:if="{{ listInfo.name }}">
     <view class="list-bg" style="background-image: url('{{ listInfo.coverImgUrl }}')"/>
     <view class="list-mask" />
     <view class="list-info">

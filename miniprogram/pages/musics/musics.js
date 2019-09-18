@@ -1,4 +1,4 @@
-import { cloudRequest } from '../../utils/cloudRequest'
+import { cloudRequest, setStorageSync } from '../../utils/wxMethod'
 
 Page({
     data: {
@@ -34,5 +34,6 @@ Page({
             },
             creator
         })
+        setStorageSync('musics', tracks)
     },
 })
