@@ -1,4 +1,4 @@
-<view class="list-container">
+<view class="list-container" >
     <view class="list-bg" style="background-image: url('{{ listInfo.coverImgUrl }}')"/>
     <view class="list-mask" />
     <view class="list-info">

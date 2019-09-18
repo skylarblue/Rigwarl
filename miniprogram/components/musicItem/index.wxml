@@ -1,0 +1,12 @@
+<view>
+    <text>{{ index + 1 }}</text>
+    <view>
+        <text>{{ music.name }}</text>
+        <text wx:if="{{ alia }}">({{ alia }})</text>
+    </view>
+    <view>
+        <text>{{ name }}</text>
+        -
+        <text>{{ music.al.name }}</text>
+    </view>
+</view>

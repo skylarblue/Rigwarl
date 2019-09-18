@@ -1,3 +1,5 @@
+import { cloudRequest } from '../../utils/cloudRequest'
+
 Page({
     data: {
         musics: [],
@@ -6,7 +8,6 @@ Page({
     },
     async onLoad (options) {
         const { playlistId } = options
-        wx.showLoading()
         const {
             result: {
                 playlist: {
@@ -17,7 +18,7 @@ Page({
                     description
                 }
             }
-        } = await wx.cloud.callFunction({
+        } = await cloudRequest({
             name: 'music',
             data: {
                 $url: 'musics',
@@ -33,6 +34,5 @@ Page({
             },
             creator
         })
-        wx.hideLoading()
     },
 })

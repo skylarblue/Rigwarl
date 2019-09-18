@@ -1,2 +1,5 @@
-<!--components/musicList/index.wxml-->
-<text>components/musicList/index.wxml</text>
+<view>
+    <block wx:for="{{musics}}" wx:key="{{item.id}}">
+        <music-item index="{{index}}" music="{{item}}" />
+    </block>
+</view>

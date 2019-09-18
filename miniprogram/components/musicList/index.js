@@ -10,5 +10,5 @@ Component({
     },
     methods: {
 
-    }
+    },
 })
