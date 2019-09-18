@@ -1,44 +1,45 @@
 {
-    "pages": [
-        "pages/home/home",
-        "pages/blog/blog",
-        "pages/profile/profile",
-        "pages/musics/musics"
-    ],
-    "window": {
-        "backgroundColor": "#F6F6F6",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#D43C43",
-        "navigationBarTitleText": "小程序云开发",
-        "navigationBarTextStyle": "white",
-        "navigationStyle": "custom"
-    },
-    "tabBar": {
-        "color": "#474747",
-        "selectedColor": "#D43C43",
-        "list": [
-            {
-                "pagePath": "pages/home/home",
-                "text": "音乐",
-                "iconPath": "./assets/2-3_music.png",
-                "selectedIconPath": "./assets/2-3_music_activated.png"
-            },
-            {
-                "pagePath": "pages/blog/blog",
-                "text": "发现",
-                "iconPath": "./assets/2-3_blog.png",
-                "selectedIconPath": "./assets/2-3_blog_activated.png"
-            },
-            {
-                "pagePath": "pages/profile/profile",
-                "text": "我的",
-                "iconPath": "./assets/2-3_profile.png",
-                "selectedIconPath": "./assets/2-3_profile_activated.png"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json",
-    "usingComponents": {
-        "cu-custom":"/colorui/components/cu-custom"
-    }
+  "pages": [
+    "pages/home/home",
+    "pages/blog/blog",
+    "pages/profile/profile",
+    "pages/musics/musics",
+    "pages/player/player"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#D43C43",
+    "navigationBarTitleText": "小程序云开发",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#474747",
+    "selectedColor": "#D43C43",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "音乐",
+        "iconPath": "./assets/2-3_music.png",
+        "selectedIconPath": "./assets/2-3_music_activated.png"
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "发现",
+        "iconPath": "./assets/2-3_blog.png",
+        "selectedIconPath": "./assets/2-3_blog_activated.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "./assets/2-3_profile.png",
+        "selectedIconPath": "./assets/2-3_profile_activated.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  }
 }

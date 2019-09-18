@@ -1,12 +1,18 @@
-<view>
-    <text>{{ index + 1 }}</text>
-    <view>
-        <text>{{ music.name }}</text>
-        <text wx:if="{{ alia }}">({{ alia }})</text>
+<view class="flex justify-between align-center" catchtap="onTap">
+    <view class="flex justify-start align-center">
+        <text class="text-grey text-sm">{{ index + 1 }}</text>
+        <view class="padding-sm margin-xs radius text-df">
+            <view>
+                <text>{{ music.name }}</text>
+                <text class="text-gray text-sm" wx:if="{{ alia }}"> ({{ alia }})</text>
+            </view>
+            <view class="text-gray text-sm text-cut" style="width: 200px">
+                <text>{{ name }}</text>-<text>{{ music.al.name }}</text>
+            </view>
+        </view>
     </view>
-    <view>
-        <text>{{ name }}</text>
-        -
-        <text>{{ music.al.name }}</text>
-    </view>
+    <text class="cuIcon-playfill text-gray margin-right"/>
 </view>
+
+
+

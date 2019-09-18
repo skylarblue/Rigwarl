@@ -1,7 +1,7 @@
 .list-container {
   width: 100vw;
   position: relative;
-  padding: 10vh 20px;
+  padding: 4vh 20px;
   box-sizing: border-box;
   color: white;
 }

@@ -1,5 +1,9 @@
-<view>
+<view class="cu-list menu sm-border">
     <block wx:for="{{musics}}" wx:key="{{item.id}}">
-        <music-item index="{{index}}" music="{{item}}" />
+        <view class="cu-item">
+            <view class="content">
+                <music-item index="{{index}}" music="{{item}}" />
+            </view>
+        </view>
     </block>
 </view>

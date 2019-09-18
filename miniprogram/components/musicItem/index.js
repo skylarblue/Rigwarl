@@ -1,4 +1,7 @@
 Component({
+    options: {
+        styleIsolation: 'apply-shared'
+    },
     properties: {
         music: {
             type: Object,
@@ -13,7 +16,13 @@ Component({
 
     },
     methods: {
-
+        onTap() {
+            const { music } = this.properties
+            const { id } = music
+            wx.navigateTo({
+                url: `/pages/player/player?musicId=${id}`
+            })
+        }
     },
     observers: {
         ['music.alia'] (alias = []) {
@@ -25,6 +34,5 @@ Component({
             const name = singerNames.join('/')
             this.setData({ name })
         },
-        // ['music.']
     }
 })
