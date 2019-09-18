@@ -1,5 +1,8 @@
 <!--pages/home/home.wxml-->
-<view>
+<view class="home">
+    <cu-custom bgColor="bg-gradual-red">
+        <view slot="content">首页</view>
+    </cu-custom>
     <banner />
     <recommend list="{{playlist}}"/>
 </view>
