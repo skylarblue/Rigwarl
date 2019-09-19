@@ -18,7 +18,7 @@
             <view class="bg-img"
                   data-url="{{ item }}"
                   style="background-image:url({{ item }});"
-                  wx:for="{{ urls }}" 
+                  wx:for="{{ urls }}"
                   wx:key="{{index}}"
                   bindtap="onPreviewImage">
                 <image src="{{item}}" mode="aspectFill"/>

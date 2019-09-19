@@ -44,7 +44,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": 2,
@@ -78,6 +78,21 @@
 					"id": -1,
 					"name": "room",
 					"pathName": "pages/room/room",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "profile",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detect/detect",
+					"pathName": "pages/detect/detect",
+					"query": "",
 					"scene": null
 				}
 			]

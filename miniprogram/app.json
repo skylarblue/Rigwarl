@@ -6,7 +6,8 @@
         "pages/musics/musics",
         "pages/player/player",
         "pages/edit/edit",
-        "pages/room/room"
+        "pages/room/room",
+        "pages/detect/detect"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",

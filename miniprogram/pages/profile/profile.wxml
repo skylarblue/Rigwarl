@@ -5,4 +5,7 @@
     <navigator url="/pages/room/room">
         <button class="cu-btn bg-purple">聊天室</button>
     </navigator>
+    <navigator class="margin-top" url="/pages/detect/detect">
+        <button class="cu-btn bg-blue">图片文字识别</button>
+    </navigator>
 </view>
