@@ -43,6 +43,7 @@ Component({
         },
 
         mergeCommonCriteria(criteria) {
+            console.log(criteria, 'asdg')
             return {
                 groupId: this.data.groupId,
                 ...criteria,
@@ -59,7 +60,9 @@ Component({
                 })
                 const _ = db.command
 
-                const { data: initList } = await db.collection(collection).where(this.mergeCommonCriteria()).orderBy('sendTimeTS', 'desc').get()
+                const { data: initList } = await db.collection(collection).where({
+                    groupId: this.data.groupId,
+                }).orderBy('sendTimeTS', 'desc').get()
 
                 console.log('init query chats', initList)
 
@@ -68,9 +71,9 @@ Component({
                     scrollTop: 10000,
                 })
 
-                // this.initWatch(initList.length ? {
-                //     sendTimeTS: _.gt(initList[initList.length - 1].sendTimeTS),
-                // } : {})
+                this.initWatch(initList.length ? {
+                    sendTimeTS: _.gt(initList[initList.length - 1].sendTimeTS),
+                } : {})
             }, '初始化失败')
         },
 
@@ -286,15 +289,18 @@ Component({
                 })
                 return
             }
-
-            this.createSelectorQuery().select('.body').boundingClientRect(bodyRect => {
-                this.createSelectorQuery().select(`.body`).scrollOffset(scroll => {
-                    if (scroll.scrollTop + bodyRect.height * 3 > scroll.scrollHeight) {
-                        console.log('should scroll to bottom')
-                        this.setData(SETDATA_SCROLL_TO_BOTTOM)
-                    }
-                }).exec()
-            }).exec()
+            wx.pageScrollTo({
+                scrollTop: 100000
+            })
+            //
+            // this.createSelectorQuery().select('.body').boundingClientRect(bodyRect => {
+            //     this.createSelectorQuery().select(`.body`).scrollOffset(scroll => {
+            //         if (scroll.scrollTop + bodyRect.height * 3 > scroll.scrollHeight) {
+            //             console.log('should scroll to bottom')
+            //             this.setData(SETDATA_SCROLL_TO_BOTTOM)
+            //         }
+            //     }).exec()
+            // }).exec()
         },
 
         async onScrollToUpper() {

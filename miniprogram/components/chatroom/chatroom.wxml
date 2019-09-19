@@ -7,7 +7,7 @@
         wx:for="{{ chats }}" wx:key="{{item._id}}" id="item-{{index}}"
         class="cu-item {{openId == item._openid ? 'self' : ''}}"
     >
-        <view wx:if="{{ openId !== item._openid }}" class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
+        <view wx:if="{{ openId !== item._openid }}" class="cu-avatar radius" style="background-image:url({{ item.avatar }});"></view>
         <view class="main" wx:if="{{item.msgType === 'text'}}">
             <view class="content {{openId == item._openid ? 'bg-green' : ''}} shadow">
                 <text>{{item.textContent}}</text>
@@ -16,7 +16,7 @@
         <view class="main" wx:if="{{item.msgType === 'image'}}">
             <image src="{{item.tempFilePath || item.imgFileID}}" class="radius" mode="widthFix"></image>
         </view>
-        <view wx:if="{{ openId === item._openid }}" class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
+        <view wx:if="{{ openId === item._openid }}" class="cu-avatar radius" style="background-image:url({{ item.avatar }});"></view>
 <!--        <view class="date">2018年3月23日 13:23</view>-->
     </view>
 </view>
