@@ -16,5 +16,13 @@ export const chooseImage = (options) => new Promise(resolve => {
     options.success = (res) => resolve(res)
     wx.chooseImage(options)
 })
+export const getSetting = (options = {}) => new Promise(resolve => {
+    options.success = (res) => resolve(res)
+    wx.getSetting(options)
+})
+export const getUserInfo = (options = {}) => new Promise(resolve => {
+    options.success = (res) => resolve(res)
+    wx.getUserInfo(options)
+})
 export const previewImage = (options) => wx.previewImage(options)
 export const cloudUploadFile = async (options) => await wx.cloud.uploadFile(options)

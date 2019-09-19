@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-      "search": "../../components/search"
+      "search": "../../components/search",
+      "login-modal": "../../components/loginModal"
   }
 }

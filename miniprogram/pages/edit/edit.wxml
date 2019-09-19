@@ -1,5 +1,5 @@
 <view class="container bg-white">
-    <cu-custom bgColor="bg-gradual-red">
+    <cu-custom bgColor="bg-gradual-red" isBack="true">
         <view slot="content">发布</view>
     </cu-custom>
     <view class="cu-form-group">

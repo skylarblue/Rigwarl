@@ -1,0 +1,15 @@
+<view class="cu-modal {{ modalShow ? 'show' : '' }}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-between">
+            <view class="padding-xl">
+                <button class="cu-btn round bg-cyan shadow"
+                        open-type="getUserInfo"
+                        bindgetuserinfo="onGotUserInfo"
+                >点击授权并登陆</button>
+            </view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+    </view>
+</view>

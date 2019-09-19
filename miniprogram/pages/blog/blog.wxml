@@ -4,9 +4,7 @@
     </cu-custom>
     <!-- 头部 -->
     <view class="header" style="top: {{ CustomBar }}px;">
-        <navigator url="/pages/edit/edit">
-            <view class="cuIcon-edit text-xsl" />
-        </navigator>
+        <view class="cuIcon-edit" bindtap="onPublish"/>
         <view class="search-container">
             <search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch" />
         </view>
@@ -24,7 +22,5 @@
 
 
     <!-- 底部弹出层 -->
-    <x-login modalShow="{{modalShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
-
-    </x-login>
+    <login-modal modalShow="{{modalShow}}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />
 </view>
