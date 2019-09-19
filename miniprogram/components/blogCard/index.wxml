@@ -15,7 +15,13 @@
             {{ data.content }}
         </view>
         <view class="grid flex-sub padding-lr col-3 grid-square">
-            <view class="bg-img" data-url="{{ item }}" style="background-image:url({{ item }});" wx:for="{{ urls }}" wx:key="{{index}}" bindtap="onPreviewImage">
+            <view class="bg-img"
+                  data-url="{{ item }}"
+                  style="background-image:url({{ item }});"
+                  wx:for="{{ urls }}" 
+                  wx:key="{{index}}"
+                  bindtap="onPreviewImage">
+                <image src="{{item}}" mode="aspectFill"/>
             </view>
         </view>
         <view class="text-gray text-sm text-right padding">

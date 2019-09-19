@@ -1,5 +1,5 @@
 // components/blogCard/index.js
-import { cloudGetTempFileURL, previewImage } from '../../utils/wxMethod'
+import { previewImage } from '../../utils/wxMethod'
 
 Component({
     options: {
@@ -33,11 +33,7 @@ Component({
                 })
                 return
             }
-            const { fileList } = await cloudGetTempFileURL({
-                fileList: images.map(i => ({fileID: i}))
-            })
-            const urls = fileList.map(({ tempFileURL }) => tempFileURL)
-            this.setData({ urls, show: true })
+            this.setData({ urls: images, show: true })
         }
     }
 })
