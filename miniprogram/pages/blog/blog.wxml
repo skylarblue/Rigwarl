@@ -4,7 +4,9 @@
     </cu-custom>
     <!-- 头部 -->
     <view class="header" style="top: {{ CustomBar }}px;">
-        <view class="cuIcon-edit text-xsl" bind:tap="onPublish" />
+        <navigator url="/pages/edit/edit">
+            <view class="cuIcon-edit text-xsl" />
+        </navigator>
         <view class="search-container">
             <search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch" />
         </view>
