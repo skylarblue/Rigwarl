@@ -5,7 +5,8 @@
         "pages/profile/profile",
         "pages/musics/musics",
         "pages/player/player",
-        "pages/edit/edit"
+        "pages/edit/edit",
+        "pages/room/room"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -33,7 +34,7 @@
             },
             {
                 "pagePath": "pages/profile/profile",
-                "text": "我的",
+                "text": "更多",
                 "iconPath": "./assets/2-3_profile.png",
                 "selectedIconPath": "./assets/2-3_profile_activated.png"
             }
