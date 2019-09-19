@@ -10,11 +10,13 @@ Page({
         // chatRoomEnvId: 'release-f8415a',
         chatRoomCollection: 'chatroom',
         chatRoomGroupId: 'demo',
-        chatRoomGroupName: '聊天室',
+        chatRoomGroupName: 'test',
 
         // functions for used in chatroom components
         onGetUserInfo: null,
         getOpenID: null,
+
+        InputBottom: 0
     },
 
     onLoad: function() {
@@ -75,10 +77,14 @@ Page({
         }
     },
 
-    onShareAppMessage() {
-        return {
-            title: '即时通信 Demo',
-            path: '/pages/im/room/room',
-        }
+    InputFocus(e) {
+        this.setData({
+            InputBottom: e.detail.height
+        })
     },
+    InputBlur(e) {
+        this.setData({
+            InputBottom: 0
+        })
+    }
 })

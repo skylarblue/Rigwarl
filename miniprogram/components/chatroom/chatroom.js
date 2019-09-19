@@ -5,6 +5,9 @@ const SETDATA_SCROLL_TO_BOTTOM = {
 }
 
 Component({
+    options: {
+        styleIsolation: 'apply-shared'
+    },
     properties: {
         envId: String,
         collection: String,
@@ -26,6 +29,8 @@ Component({
         scrollTop: 0,
         scrollToMessage: '',
         hasKeyboard: false,
+
+        InputBottom: 0
     },
 
     methods: {
@@ -63,9 +68,9 @@ Component({
                     scrollTop: 10000,
                 })
 
-                this.initWatch(initList.length ? {
-                    sendTimeTS: _.gt(initList[initList.length - 1].sendTimeTS),
-                } : {})
+                // this.initWatch(initList.length ? {
+                //     sendTimeTS: _.gt(initList[initList.length - 1].sendTimeTS),
+                // } : {})
             }, '初始化失败')
         },
 
@@ -276,7 +281,9 @@ Component({
         scrollToBottom(force) {
             if (force) {
                 console.log('force scroll to bottom')
-                this.setData(SETDATA_SCROLL_TO_BOTTOM)
+                wx.pageScrollTo({
+                    scrollTop: 100000
+                })
                 return
             }
 
@@ -319,18 +326,29 @@ Component({
             wx.showModal({
                 title,
                 content: content.toString(),
-                showCancel: confirmText ? true : false,
+                showCancel: !!confirmText,
                 confirmText,
                 success: res => {
                     res.confirm && confirmCallback()
                 },
             })
         },
+
+        InputFocus(e) {
+            this.setData({
+                InputBottom: e.detail.height
+            })
+        },
+        InputBlur(e) {
+            this.setData({
+                InputBottom: 0
+            })
+        }
     },
 
     ready() {
-        global.chatroom = this
         this.initRoom()
         this.fatalRebuildCount = 0
     },
+
 })
