@@ -4,20 +4,28 @@ Component({
         styleIsolation: 'apply-shared'
     },
     properties: {
-
+        keyword: String,
     },
-
-    /**
-     * 组件的初始数据
-     */
     data: {
-
+        text: ''
     },
-
-    /**
-     * 组件的方法列表
-     */
     methods: {
-
+        onInput(event) {
+            this.setData({
+                text: event.detail.value
+            })
+        },
+        onTap() {
+            this.triggerEvent('search', this.data.text)
+        },
+        onClear() {
+            const { keyword } = this.properties
+            if (keyword) {
+                this.triggerEvent('search', '')
+            }
+            this.setData({
+                text: ''
+            })
+        }
     }
 })

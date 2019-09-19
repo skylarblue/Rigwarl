@@ -1,7 +1,8 @@
 {
     "usingComponents": {
         "search": "../../components/search",
-        "login-modal": "../../components/loginModal"
+        "login-modal": "../../components/loginModal",
+        "blog-card": "../../components/blogCard"
     },
     "enablePullDownRefresh": true
 }

@@ -26,4 +26,6 @@ export const getUserInfo = (options = {}) => new Promise(resolve => {
     wx.getUserInfo(options)
 })
 export const previewImage = (options) => wx.previewImage(options)
+export const stopPullDownRefresh = () => wx.stopPullDownRefresh()
 export const cloudUploadFile = async (options) => await wx.cloud.uploadFile(options)
+export const cloudGetTempFileURL = async (options) => await wx.cloud.getTempFileURL(options)

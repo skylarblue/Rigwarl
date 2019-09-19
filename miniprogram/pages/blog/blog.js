@@ -1,10 +1,31 @@
-import { getUserInfo, getSetting, navigateTo } from '../../utils/wxMethod'
+import {
+    getUserInfo, getSetting, navigateTo,
+    cloudRequest, stopPullDownRefresh
+} from '../../utils/wxMethod'
 
 const app = getApp()
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
-        modalShow: false
+        modalShow: false,
+        page: 1,
+        blogList: [],
+        keyword: ''
+    },
+    onLoad() {
+        this._loadBlogList()
+    },
+    async _loadBlogList() {
+        const { page } = this.data
+        const { result: { data: blogList } } = await cloudRequest({
+            name: 'blog',
+            data: {
+                $url: 'list',
+                page,
+                keyword: this.data.keyword
+            }
+        })
+        this.setData({ blogList })
     },
     async onPublish() {
         const { authSetting } = await getSetting()
@@ -31,6 +52,18 @@ Page({
         })
     },
     onPullDownRefresh() {
-        console.log(11)
+        this.data.keyword = ''
+        this.setData({
+            blogList: []
+        })
+        this._loadBlogList()
+        stopPullDownRefresh()
+    },
+    onSearch(event) {
+        this.setData({
+            blogList: [],
+            keyword: event.detail
+        })
+        this._loadBlogList()
     }
 })
