@@ -1,2 +1,8 @@
-<!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+    <view class="text-cut" slot="content">更多探索</view>
+</cu-custom>
+<view class="padding">
+    <navigator url="/pages/room/room">
+        <button class="cu-btn bg-purple">聊天室</button>
+    </navigator>
+</view>
