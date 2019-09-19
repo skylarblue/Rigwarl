@@ -1,6 +1,6 @@
 import {
     getUserInfo, getSetting, navigateTo,
-    cloudRequest, stopPullDownRefresh
+    cloudRequestWithoutLoading, stopPullDownRefresh
 } from '../../utils/wxMethod'
 
 const app = getApp()
@@ -10,22 +10,25 @@ Page({
         modalShow: false,
         page: 1,
         blogList: [],
-        keyword: ''
+        keyword: '',
+        finish: false
     },
     onLoad() {
         this._loadBlogList()
     },
     async _loadBlogList() {
-        const { page } = this.data
-        const { result: { data: blogList } } = await cloudRequest({
+        const { finish, page, blogList } = this.data
+        if (finish) return
+        const { result } = await cloudRequestWithoutLoading({
             name: 'blog',
             data: {
                 $url: 'list',
                 page,
-                keyword: this.data.keyword
+                limit: 5,
+                keyword: this.data.keyword,
             }
         })
-        this.setData({ blogList })
+        this.setData({ blogList:  blogList.concat(result.data)})
     },
     async onPublish() {
         const { authSetting } = await getSetting()
@@ -54,7 +57,9 @@ Page({
     onPullDownRefresh() {
         this.data.keyword = ''
         this.setData({
-            blogList: []
+            blogList: [],
+            finish: false,
+            page: 1
         })
         this._loadBlogList()
         stopPullDownRefresh()
@@ -62,7 +67,9 @@ Page({
     onSearch(event) {
         this.setData({
             blogList: [],
-            keyword: event.detail
+            keyword: event.detail,
+            finish: false,
+            page: 1
         })
         this._loadBlogList()
     },
@@ -74,5 +81,11 @@ Page({
         //     path: `/pages/blog-comment/blog-comment?blogId=${blogObj._id}`,
         //     // imageUrl: ''
         // }
-    }
+    },
+    async onReachBottom () {
+        this.setData({
+            page: this.data.page + 1,
+        })
+        this._loadBlogList()
+    },
 })
