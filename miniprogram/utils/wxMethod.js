@@ -12,6 +12,7 @@ export const hideLoading = () => wx.hideLoading()
 export const showToast = (options) => wx.showToast(options)
 export const showModal = (options) => wx.showModal(options)
 export const navigateTo = (options) => wx.navigateTo(options)
+export const navigateBack = () => wx.navigateBack()
 export const chooseImage = (options) => new Promise(resolve => {
     options.success = (res) => resolve(res)
     wx.chooseImage(options)

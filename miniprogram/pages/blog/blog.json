@@ -1,6 +1,7 @@
 {
-  "usingComponents": {
-      "search": "../../components/search",
-      "login-modal": "../../components/loginModal"
-  }
+    "usingComponents": {
+        "search": "../../components/search",
+        "login-modal": "../../components/loginModal"
+    },
+    "enablePullDownRefresh": true
 }

@@ -30,4 +30,7 @@ Page({
             content: '',
         })
     },
+    onPullDownRefresh() {
+        console.log(11)
+    }
 })
