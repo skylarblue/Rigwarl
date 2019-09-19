@@ -19,8 +19,10 @@
             </view>
         </view>
         <view class="text-gray text-sm text-right padding">
-            <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-            <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            <button class="cu-btn" open-type="share" data-blogid="{{item.id}}" data-blog="{{item}}">
+                <text class="cuIcon-share margin-lr-xs margin-right"></text>
+            </button>
+<!--            <text class="cuIcon-comment margin-lr-xs"></text>-->
         </view>
 <!--        <view class="cu-list menu-avatar comment solids-top">-->
 <!--            <view class="cu-item">-->
@@ -60,10 +62,6 @@
 <!--                    </view>-->
 <!--                    <view class="margin-top-sm flex justify-between">-->
 <!--                        <view class="text-gray text-df">2018年12月4日</view>-->
-<!--                        <view>-->
-<!--                            <text class="cuIcon-appreciate text-gray"></text>-->
-<!--                            <text class="cuIcon-messagefill text-gray margin-left-sm"></text>-->
-<!--                        </view>-->
 <!--                    </view>-->
 <!--                </view>-->
 <!--            </view>-->
