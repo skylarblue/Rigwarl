@@ -49,7 +49,7 @@ Page({
         // 文件扩展名
         let suffix = /\.\w+$/.exec(item)[0]
         const { fileID } = await cloudUploadFile({
-            cloudPath: 'blog/' + Date.now() + '-' + Math.random() * 1000000 + suffix,
+            cloudPath: 'detect/' + Date.now() + '-' + Math.random() * 1000000 + suffix,
             filePath: item,
         })
         const { fileList } = await cloudGetTempFileURL({

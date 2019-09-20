@@ -4,7 +4,6 @@ const cloud = require('wx-server-sdk')
 cloud.init()
 const tencentcloud = require("tencentcloud-sdk-nodejs");
 
-
 const OcrClient = tencentcloud.ocr.v20181119.Client;
 const models = tencentcloud.ocr.v20181119.Models;
 
